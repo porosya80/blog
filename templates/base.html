@@ -44,25 +44,23 @@
 
 
 
-      <div class="container">
-          <div class="row text-justify"></div>
-          <div class="col-md-offset-3 col-md-6">
+      <div class="container-fluid">
+          <div class="container">
+              <div class="row text-center justify-content-center">
+                  <div class="col">
 
-{#              <div class="row">#}
-                  <h1>
-                      {% block content_title %}
+                      <h1>
+                          {% block content_title %}
+
+                          {% endblock %}
+                      </h1>
+                      {% block content %}
 
                       {% endblock %}
-                  </h1>
-{#              </div>#}
-      {% block content %}
-
-      {% endblock %}
+                  </div>
+              </div>
           </div>
       </div>
-      </div>
-
-
 
 
     <!-- Optional JavaScript -->
