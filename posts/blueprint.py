@@ -14,7 +14,7 @@ posts = Blueprint('posts', __name__,template_folder='templates')
 
 
 @posts.route('/create',methods=['POST','GET'])
-@login_required
+# @login_required
 def create_post():
     if request.method == "POST":
         title = request.form['title']
@@ -49,9 +49,10 @@ def index():
 
 
     if q:
-        posts = Post.query.filter(Post.title.contains(q) | Post.body.contains(q)).all()
+        posts = Post.query.filter(Post.title.contains(q) | Post.body.contains(q))
     else:
         posts = Post.query.order_by(Post.created.desc())
+
 
 
     pages = posts.paginate(page=page,per_page=5)
@@ -61,7 +62,7 @@ def index():
 
 
 @posts.route('/<slug>/edit', methods=['POST','GET'])
-@login_required
+# @login_required
 def edit_post(slug):
     post = Post.query.filter(Post.slug==slug).first()
 
