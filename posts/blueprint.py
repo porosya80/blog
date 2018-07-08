@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask import render_template
 from flask import request
-from forms import PostForm
+from .forms import PostForm
 
 from models import Post, Tag
 from app import db
