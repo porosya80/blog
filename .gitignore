@@ -197,3 +197,4 @@ migrations/versions/b5e5f7d0529d_.py
 
 /config.py
 !/.gitignore
+.vscode

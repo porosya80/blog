@@ -1,29 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %} {{ post.title }} {% endblock %} {% block content_title %} {{post.title}} {% endblock
+%} {% block content %}
+<div class="tags">
 
-{% block title %}
-    {{ post.title }}
-{% endblock %}
+    {% for tag in tags %}
 
+    <a href="{{ url_for('posts.tag_detail',slug=tag.slug) }}" class="badge badge-primary">{{ tag.name }}</a>
 
-{% block content_title %}
-    {{post.title}}
+    {% endfor %}
 
-{% endblock %}
+</div>
 
-
-{% block content %}
-     <div class="tags">
-
-        {% for tag in tags %}
-
-             <a href="{{ url_for('posts.tag_detail',slug=tag.slug) }}" class="badge badge-primary">{{ tag.name }}</a>
-
-        {% endfor %}
-
-    </div>
-
-    <div class="main-content">
-        {{ post.body }}
-    </div>
+<div class="main-content">
+    {{ post.body }}
+</div>
 
 {% endblock %}
