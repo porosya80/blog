@@ -17,13 +17,15 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 manager = Manager(app)
-manager.add_command('db', MigrateCommand)
+manager.add_command("db", MigrateCommand)
+
 from models import *
+
 admin = Admin(app)
-admin.add_view(ModelView(Post,db.session))
-admin.add_view(ModelView(Tag,db.session))
+admin.add_view(ModelView(Post, db.session))
+admin.add_view(ModelView(Tag, db.session))
 
 ### flask_seq
 
-user_datastore = SQLAlchemyUserDatastore(db, User,Role)
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
